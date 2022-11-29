@@ -11,8 +11,8 @@ exports.run = {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, '😳+😩'), m)
          let [emo1, emo2] = text.split`+`
          if (!emo1 || !emo2) return client.reply(m.chat, Func.texted('bold', `🚩 Berikan 2 emoticon untuk di mix.`), m)
-         let json = await client.Api.emojimix(emo1 + '_' + emo2)
-         return await client.sendSticker(m.chat, emj, m, {
+         let json = await client.api.emojimix(emo1 + '_' + emo2)
+         return await client.sendSticker(m.chat, Func.jsonFormat(e), m, {
             packname: exif.sk_pack,
             author: exif.sk_author,
          })
