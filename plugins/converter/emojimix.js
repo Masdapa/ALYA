@@ -15,7 +15,7 @@ exports.run = {
          let [emo1, emo2] = text.split`+`
          if (!emo1 || !emo2) return client.reply(m.chat, Func.texted('bold', `🚩 Berikan 2 emoticon untuk di mix.`), m)
          let json = await Api.emojimix(emo1 + '_' + emo2)
-         return await client.sendSticker(m.chat, img, m, {
+         return await client.sendEmoji(m.chat, emoji, m, {
             packname: exif.sk_pack,
             author: exif.sk_author,
          })
