@@ -5,9 +5,6 @@ exports.run = {
    category: 'converter',
    async: async (m, {
       client,
-      text,
-      isPrefix,
-      command
    }) => {
       try {
          let exif = global.db.setting
@@ -15,7 +12,7 @@ exports.run = {
          let [emo1, emo2] = text.split`+`
          if (!emo1 || !emo2) return client.reply(m.chat, Func.texted('bold', `🚩 Berikan 2 emoticon untuk di mix.`), m)
          let json = await Api.emojimix(emo1 + '_' + emo2)
-         return await client.sendEmoji(m.chat, emoji, m, {
+         return await client.sendSticker(m.chat, Func.fetchBuffer(json.data.url), m, {
             packname: exif.sk_pack,
             author: exif.sk_author,
          })
