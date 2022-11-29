@@ -26,6 +26,4 @@ exports.run = {
       }
    },
    error: false,
-   cache: true,
-   location: __filename
 }
